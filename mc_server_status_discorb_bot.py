@@ -39,7 +39,7 @@ async def api_fetch():
             else:
                 return "Failed to fetch data, mcsrvstat.us API may be down"
 
-async def send_message_continuously(channel_id, interval=3600):
+async def send_message_continuously(channel_id, interval=3600):# change 3600 to the interval you want
     channel = client.get_channel(channel_id)  
     while True:
         message_content = await api_fetch()  # Fetch the latest data
