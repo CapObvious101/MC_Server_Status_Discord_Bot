@@ -1,5 +1,5 @@
 # MC_Server_Status_Discord_Bot
-Discord bot that sends a Minecraft server's status in predetermined intervals.
+Discord bot that uses mcsrvstat.us API to send server status in predetermined intervals.
 
 Default frequency: 1 hour
 In case the server is down it can @ a user of your choice
@@ -9,3 +9,7 @@ Set-up:
 2. Change the Server IP and status check intervals;
 3. Change the Channel and User ID;
 4. Run the script.
+
+Resources used:
+https://mcsrvstat.us/
+https://www.youtube.com/watch?v=UYJDKSah-Ww&t=912s
