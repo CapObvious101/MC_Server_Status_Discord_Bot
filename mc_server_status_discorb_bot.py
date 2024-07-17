@@ -11,16 +11,16 @@ TOKEN = os.getenv('Discord_Token')
 
 # Setup
 intents = Intents.default()
-intents.message_content = True
+intents.messages = True
 client = Client(intents=intents)
 
 async def api_fetch():
     async with aiohttp.ClientSession() as session:
-        async with session.get('https://api.mcsrvstat.us/3/132.145.25.132') as res:
+        async with session.get('https://api.mcsrvstat.us/3/mc.hypixel.net') as res:  #insert your server IP
             if res.status == 200:
                 jsonfile = await res.json()
                 if jsonfile["online"] == False:
-                    user_id = ""  # Replace with the ID of the user you want to tag
+                    user_id = "000000000000000000"  # Replace with the ID of the user you want to tag
                     return f"<@{user_id}> Server is offline"
                 else:
                     IP = jsonfile["ip"]
@@ -53,6 +53,6 @@ async def send_message_continuously(channel_id, interval=3600):
 async def on_ready():
     print(f'{client.user} has connected to Discord!')
     # Start the message sending loop for a specific channel
-    asyncio.create_task(send_message_continuously(channel_id=1))  
+    asyncio.ensure_future(send_message_continuously(channel_id=000000000000000000000000))  # Replace with the ID of the channel you want to send messages to
 
 client.run(TOKEN)
