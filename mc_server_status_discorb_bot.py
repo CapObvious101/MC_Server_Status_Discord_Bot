@@ -24,7 +24,7 @@ async def api_fetch():
                     return f"<@{user_id}> Server is offline"
                 else:
                     IP = jsonfile["ip"]
-                    motd = jsonfile["motd"]["html"]
+                    motd = jsonfile["motd"]["clean"]
                     players = jsonfile["players"]["online"]
                     version = jsonfile["version"]
 
