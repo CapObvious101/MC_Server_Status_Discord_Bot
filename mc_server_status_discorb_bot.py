@@ -22,19 +22,19 @@ async def api_fetch():
                 if jsonfile["online"] == False:
                     user_id = "000000000000000000"  # Replace with the ID of the user you want to tag
                     return f"<@{user_id}> Server is offline"
-                else:
+                else: 
                     IP = jsonfile["ip"]
                     motd = jsonfile["motd"]["clean"]
                     players = jsonfile["players"]["online"]
                     version = jsonfile["version"]
 
                     if jsonfile["players"]["online"] > 0:
-                        namelist = jsonfile["players"]["list"][0]["name"]
+                        namelist = ", ".join(player["name"] for player in jsonfile["players"]["list"])
                        
-                        message_content = f"--------------------------------\nIP: {IP}\nMOTD: {motd}\nPlayers Online: {namelist}\nVersion: {version}\n--------------------------------"
+                        message_content = f"--------------------------------\nIP: {IP}\nMOTD: {motd}\nPlayers Online: {namelist}\nVersion: {version}\nBot v1.2.0\n--------------------------------"
                     else:
 
-                        message_content = f"--------------------------------\nIP: {IP}\nMOTD: {motd}\nPlayers Online: {players}/20\nVersion: {version}\n--------------------------------"
+                        message_content = f"--------------------------------\nIP: {IP}\nMOTD: {motd}\nPlayers Online: {players}/20\nVersion: {version}\nBot v1.2.0\n--------------------------------"
                     return message_content
             else:
                 return "Failed to fetch data, mcsrvstat.us API may be down"
